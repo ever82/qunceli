@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <!--meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <meta name="msapplication-tap-highlight" content="no" />
+        <link type="text/css"  rel="stylesheet" href="http://gping.cn/sres/lib/bootstrap/bootstrap.min.css"/> 
+        <title>Hello World</title>
+    </head>
+    <body onload="onLoad()">
+      <script type="text/javascript" src="cordova.js"></script>
+      <link type="text/css" rel="Stylesheet" href="http://gping.cn/sres/lib/ssys/SsysResourceView.css" />
+      <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.js"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/bootstrap.min.js"></script> 
+      <script type="text/javascript" src="http://gping.cn/qunceli/qunceli.min.22.js"></script>
+      <script type="text/javascript">
+        //有的浏览器没有console对象
+        window.console=window.console||{
+          info:function(){
+            
+          },
+          debug:function(){
+            
+          },
+          warn:function(){
+            
+          },
+          error:function(){
+            
+          },
+          log:function(){
+            
+          }
+        };
+        if(!console.debug){
+          console.debug=console.info;
+        }
+        if(!console.warn){
+          console.warn=console.log||console.info;
+        }
+        if(!console.error){
+          console.error=console.info;
+        }
+        
+        function onPause() {    
+          //isPhoneGapReady = false;
+          // clear the Internet check interval    
+          //window.clearInterval(internetInterval);
+        }
+        
+        function onResume() {
+        }
+        function onDeviceReady(){
+          document.addEventListener("resume", onResume, false);
+          document.addEventListener("pause", onPause, false);
+          if(!scenter) { 
+            ssys.sresBaseUrl="http://gping.cn/sres/";
+            var scenter=ssys.clientClasses["scenter"].create("http://scenter.sinaapp.com/","scenter","http://gping.cn/sres/apps/scenter/");
+            var gzqbbs=SsysClient.create("http://gongzheng.cc/bbs/ssys/index.php/","gzqbbs");
+            ssys.qunceli.init();
+          }
+        }
+  
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+        /*$(document).ready(function(){
+            ssys.sresBaseUrl="http://gping.cn/sres/";
+            var scenter=ssys.clientClasses["scenter"].create("http://scenter.sinaapp.com/","scenter","http://gping.cn/sres/apps/scenter/");
+            var gzqbbs=SsysClient.create("http://gongzheng.cc/bbs/ssys/index.php/","gzqbbs");
+            ssys.qunceli.init();
+        });*/      
+        
+      </script>
+    </body>
+</html>
